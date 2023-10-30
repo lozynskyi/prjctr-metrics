@@ -35,6 +35,7 @@ $types = ['apple', 'book', 'glass', 'watch'];
 for ($document = 1; $document <= 1000; $document++) {
     $type = $types[random_int(0 , 3)];
     $time = time();
+    $count = random_int(0 , 100);
     $data = [
         'document_id' => $document,
         'title' => "Counter Document number: " . $document,
@@ -51,7 +52,7 @@ for ($document = 1; $document <= 1000; $document++) {
         ['$set' => $data],
         ['upsert' => true]
     );
-    $statsd->increment('request.successful.count,type=' . $type, $delta);
+    $statsd->increment('request.successful.count,type=' . $type, $count);
     $statsd->timing('request.successful.time,type=' . $type, $time);
 
     //echo $document . " " ;
