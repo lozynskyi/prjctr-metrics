@@ -48,7 +48,7 @@ services:
       - influxdb
       - mongodb
     env_file:
-      - influxv2.env
+      - ./docker/influxdbv2/influxv2.env
     ports:
       - '8125:8125/udp'
 
@@ -56,7 +56,7 @@ services:
     container_name: influxdb
     image: influxdb:2.6-alpine
     env_file:
-      - influxv2.env
+      - ./docker/influxdbv2/influxv2.env
     volumes:
       - ./docker/influxdbv2/data:/var/lib/influxdb2:rw
     ports:
