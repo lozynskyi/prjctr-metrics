@@ -1,4 +1,6 @@
 .idea/
-data/
+docker/mongodb/data/
 app/vendor/
+app/composer.lock
 app/vendor
+docker/influxdbv2/data
